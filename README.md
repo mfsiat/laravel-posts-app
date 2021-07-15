@@ -44,3 +44,23 @@
     @enderror
 </div>
 ```
+
+-   A simple way to authenticate
+
+```
+            @if (auth()->user())
+                <li>
+                  User logged in
+                </li>
+                <li>
+                    <a href="" class="p-3">Logout</a>
+                </li>
+            @else
+                <li>
+                    <a href="" class="p-3">Login</a>
+                </li>
+                <li>
+                    <a href="{{ route('register') }}" class="p-3">Register</a>
+                </li>
+            @endif
+```
