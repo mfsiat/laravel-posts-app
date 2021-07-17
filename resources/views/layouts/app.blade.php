@@ -26,21 +26,24 @@
 
         <ul class="flex items-center">
 
-            @if (auth()->user())
+            @auth
                 <li>
                     <a href="" class="p-3">Siat</a>
                 </li>
                 <li>
                     <a href="" class="p-3">Logout</a>
                 </li>
-            @else
+            @endauth
+
+            @guest
                 <li>
-                    <a href="" class="p-3">Login</a>
+                    <a href="{{ route('login') }}" class="p-3">Login</a>
                 </li>
                 <li>
                     <a href="{{ route('register') }}" class="p-3">Register</a>
                 </li>
-            @endif
+            @endguest
+
         </ul>
     </nav>
     @yield('content')
