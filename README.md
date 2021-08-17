@@ -4,31 +4,31 @@
 
 ## Workflow
 
--   Scaffolded basic views
--   installed tailwind css
--   npm install
--   npm run dev
+- Scaffolded basic views
+- installed tailwind css
+- npm install
+- npm run dev
 
 ## Routes
 
--   Resources
-    -   Views
-        -   layouts
-            -   app.blade (@yeild)
-        -   posts
-            -   index.blade (extends)
+- Resources
+  - Views
+    - layouts
+      - app.blade (@yeild)
+    - posts
+      - index.blade (extends)
 
 ## Useful commands
 
--   Database migration: **`php artisan migrate`**
--   If we need to modify the table or add a new column on one of the table please add: **`php artisan make:migration add_username_to_users_table`**
--   Make changes to the migration files and to add the fields on the DB just enter **`php artisan migrate`**
+- Database migration: **`php artisan migrate`**
+- If we need to modify the table or add a new column on one of the table please add: **`php artisan make:migration add_username_to_users_table`**
+- Make changes to the migration files and to add the fields on the DB just enter **`php artisan migrate`**
 
--   The database is handled using models and ORM's
+- The database is handled using models and ORM's
 
 ## Extra Stuff
 
--   Simple form validation
+- Simple form validation
 
 ```
 <div class="mb-4">
@@ -45,7 +45,7 @@
 </div>
 ```
 
--   A simple way to authenticate
+- A simple way to authenticate
 
 ```
             @if (auth()->user())
@@ -63,4 +63,24 @@
                     <a href="{{ route('register') }}" class="p-3">Register</a>
                 </li>
             @endif
+```
+
+- Relationship between post and user
+
+```
+class Post extends Model
+{
+    use HasFactory;
+
+    protected $fillable =[
+        'body'
+    ];
+
+    // Relationship between post and user
+    // this is used to get the user identity from the post
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
 ```

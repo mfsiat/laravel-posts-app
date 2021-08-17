@@ -12,6 +12,13 @@ class Post extends Model
     protected $fillable =[
         'body'
     ];
+
+    // Relationship between post and user 
+    // this is used to get the user identity from the post
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
 
 // One user will have many post
