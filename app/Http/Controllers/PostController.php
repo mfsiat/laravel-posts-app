@@ -10,7 +10,10 @@ class PostController extends Controller
     public function index()
     {
         // get all the posts via eloquent
-        $posts = Post::get();
+        // $posts = Post::get();
+        // get all data paginated way 
+        $posts = Post::paginate(20);
+        // dd($posts);
 
         return view('posts.index', [
             'posts' => $posts
