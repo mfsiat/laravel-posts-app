@@ -15,6 +15,12 @@ class Post extends Model
         'body'
     ];
 
+    // Restrict user from liking same post multiple times
+    public function likedBy(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
+    }
+
     // Relationship between post and user 
     // this is used to get the user identity from the post
     public function user()
