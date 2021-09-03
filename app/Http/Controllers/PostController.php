@@ -12,7 +12,7 @@ class PostController extends Controller
         // get all the posts via eloquent
         // $posts = Post::get();
         // get all data paginated way 
-        $posts = Post::paginate(20);
+        $posts = Post::with(['user', 'likes'])->paginate(20);
         // dd($posts);
 
         return view('posts.index', [

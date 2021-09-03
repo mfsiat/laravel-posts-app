@@ -4,31 +4,31 @@
 
 ## Workflow
 
-- Scaffolded basic views
-- installed tailwind css
-- npm install
-- npm run dev
+-   Scaffolded basic views
+-   installed tailwind css
+-   npm install
+-   npm run dev
 
 ## Routes
 
-- Resources
-  - Views
-    - layouts
-      - app.blade (@yeild)
-    - posts
-      - index.blade (extends)
+-   Resources
+    -   Views
+        -   layouts
+            -   app.blade (@yeild)
+        -   posts
+            -   index.blade (extends)
 
 ## Useful commands
 
-- Database migration: **`php artisan migrate`**
-- If we need to modify the table or add a new column on one of the table please add: **`php artisan make:migration add_username_to_users_table`**
-- Make changes to the migration files and to add the fields on the DB just enter **`php artisan migrate`**
+-   Database migration: **`php artisan migrate`**
+-   If we need to modify the table or add a new column on one of the table please add: **`php artisan make:migration add_username_to_users_table`**
+-   Make changes to the migration files and to add the fields on the DB just enter **`php artisan migrate`**
 
-- The database is handled using models and ORM's
+-   The database is handled using models and ORM's
 
 ## Extra Stuff
 
-- Simple form validation
+-   Simple form validation
 
 ```
 <div class="mb-4">
@@ -45,7 +45,7 @@
 </div>
 ```
 
-- A simple way to authenticate
+-   A simple way to authenticate
 
 ```
             @if (auth()->user())
@@ -65,7 +65,7 @@
             @endif
 ```
 
-- Relationship between post and user
+-   Relationship between post and user
 
 ```
 class Post extends Model
@@ -83,4 +83,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 }
+```
+
+-   Seed dummy data with faker
+
+```
+$ php artisan tinker
+>>> App\Models\Post::factory()->times(40)->create(['user_id' => 3]);
 ```
