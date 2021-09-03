@@ -12,6 +12,7 @@ class PostController extends Controller
         // get all the posts via eloquent
         // $posts = Post::get();
         // get all data paginated way 
+        // with eager loading
         $posts = Post::with(['user', 'likes'])->paginate(20);
         // dd($posts);
 
