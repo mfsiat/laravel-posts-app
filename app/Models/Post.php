@@ -20,7 +20,7 @@ class Post extends Model
     {
         return $this->likes->contains('user_id', $user->id);
     }
-
+    
     // Relationship between post and user 
     // this is used to get the user identity from the post
     public function user()

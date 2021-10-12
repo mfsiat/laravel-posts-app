@@ -14,7 +14,8 @@ class PostController extends Controller
         // $posts = Post::get();
         // get all data paginated way 
         // with eager loading
-        $posts = Post::with(['user', 'likes'])->paginate(20);
+        // $posts = Post::orderBy('created_at', 'desc')->with(['user', 'likes'])->paginate(20);
+        $posts = Post::latest()->with(['user', 'likes'])->paginate(20);
         // dd($posts);
 
         return view('posts.index', [
@@ -44,6 +45,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
         $post->delete();
 
         return back();
