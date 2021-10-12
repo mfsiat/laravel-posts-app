@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    // List resources
     public function index()
     {
         // get all the posts via eloquent
@@ -21,6 +22,7 @@ class PostController extends Controller
         ]);
     }
 
+    // Store Resources 
     public function store(Request $request)
     {
         // dd($request->body);
@@ -37,7 +39,13 @@ class PostController extends Controller
 
         $request->user()->posts()->create($request->only('body'));
 
+        return back(); 
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
         return back();
-        
     }
 }
