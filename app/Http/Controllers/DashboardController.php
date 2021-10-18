@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PostLiked;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DashboardController extends Controller
 {
@@ -16,6 +18,10 @@ class DashboardController extends Controller
     {
         // dd(auth()->user()->name);
         // dd(auth()->user()->posts);
+        // $user = auth()->user();
+
+        // Mail::to($user)->send(new PostLiked());
+        
         return view('dashboard');
     }
 }
